@@ -4,7 +4,7 @@ The trained model checkpoints used in this dissertation are stored separately in
 
 Download the checkpoints from:
 
-[Deepfake Dissertation Checkpoints](https://stummuac-my.sharepoint.com/:f:/r/personal/25947826_stu_mmu_ac_uk/Documents/Deepfake%20Dissertation%20Checkpoints?d=w27906e13916e4808b54c95043276068b&csf=1&web=1&e=gKjJYC)
+[Deepfake Dissertation Checkpoints — MMU account required](https://stummuac-my.sharepoint.com/:f:/g/personal/25947826_stu_mmu_ac_uk/IgATbpAnbpEISLVMlQQydgaLAVcUX9i1VQOHM7FZA_k6vUs?e=AtTzWB)
 
 After downloading, copy all checkpoint files into the following Google Drive directory:
 
