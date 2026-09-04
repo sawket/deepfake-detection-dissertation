@@ -1,0 +1,56 @@
+{
+  "experiment": "E3c",
+  "training_dataset": "FaceForensics++",
+  "external_test_dataset": "Celeb-DF v2 pilot",
+  "external_input": "retinaface_crop",
+  "synthetic_sbi_used_during_test": false,
+  "optimizer": "SAM with SGD",
+  "preprocessing": "Resize 224x224; float32 scale [0,1]; no ImageNet normalization",
+  "evaluation_type": "cross-dataset; no retraining or adaptation",
+  "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0_official_sbi_sam_best.pth",
+  "decision_threshold": 0.5,
+  "model_fake_output_index": 1,
+  "video_aggregation": "mean fake probability across 10 frames",
+  "frames_evaluated": 400,
+  "videos_evaluated": 40,
+  "frame_level": {
+    "accuracy": 0.605,
+    "macro_precision": 0.7180232558139534,
+    "macro_recall": 0.605,
+    "macro_f1": 0.5461856617647058,
+    "fake_precision": 0.875,
+    "fake_recall": 0.245,
+    "fake_f1": 0.3828125,
+    "roc_auc": 0.7596,
+    "confusion_matrix": [
+      [
+        193,
+        7
+      ],
+      [
+        151,
+        49
+      ]
+    ]
+  },
+  "video_level": {
+    "accuracy": 0.6,
+    "macro_precision": 0.7777777777777778,
+    "macro_recall": 0.6,
+    "macro_f1": 0.5238095238095238,
+    "fake_precision": 1.0,
+    "fake_recall": 0.2,
+    "fake_f1": 0.3333333333333333,
+    "roc_auc": 0.83,
+    "confusion_matrix": [
+      [
+        20,
+        0
+      ],
+      [
+        16,
+        4
+      ]
+    ]
+  }
+}

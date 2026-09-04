@@ -1,0 +1,54 @@
+{
+  "experiment": "E1.1",
+  "training_dataset": "FaceForensics++ clean video-level split",
+  "external_test_dataset": "Celeb-DF v2 pilot",
+  "external_input": "RetinaFace face crop; 15% margin; saved 224x224",
+  "evaluation_type": "cross-dataset; no retraining, adaptation, or threshold tuning",
+  "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/baseline_cnn_face.pth",
+  "preprocessing": "Resize 128x128; ToTensor; Normalize mean/std 0.5",
+  "decision_threshold": 0.5,
+  "model_fake_output_index": 0,
+  "video_aggregation": "mean fake probability across 10 face crops",
+  "frames_evaluated": 400,
+  "videos_evaluated": 40,
+  "frame_level": {
+    "accuracy": 0.435,
+    "macro_precision": 0.40371796770848767,
+    "macro_recall": 0.435,
+    "macro_f1": 0.3850507469184512,
+    "fake_precision": 0.3488372093023256,
+    "fake_recall": 0.15,
+    "fake_f1": 0.2097902097902098,
+    "roc_auc": 0.415775,
+    "confusion_matrix": [
+      [
+        144,
+        56
+      ],
+      [
+        170,
+        30
+      ]
+    ]
+  },
+  "video_level": {
+    "accuracy": 0.45,
+    "macro_precision": 0.421875,
+    "macro_recall": 0.45,
+    "macro_f1": 0.3956043956043956,
+    "fake_precision": 0.375,
+    "fake_recall": 0.15,
+    "fake_f1": 0.21428571428571427,
+    "roc_auc": 0.39,
+    "confusion_matrix": [
+      [
+        15,
+        5
+      ],
+      [
+        17,
+        3
+      ]
+    ]
+  }
+}

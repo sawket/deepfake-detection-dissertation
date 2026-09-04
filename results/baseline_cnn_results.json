@@ -1,0 +1,61 @@
+{
+    "experiment": "E1",
+    "research_question": "Baseline performance of a shallow CNN trained from scratch",
+    "model": "BaselineCNN",
+    "checkpoint_strategy": "final epoch",
+    "seed": 42,
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "loss_function": "CrossEntropyLoss",
+    "image_size": [
+        128,
+        128
+    ],
+    "normalization_mean": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "normalization_std": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "class_mapping": {
+        "fake": 0,
+        "real": 1
+    },
+    "training_class_counts": {
+        "fake": 1400,
+        "real": 1400
+    },
+    "validation_class_counts": {
+        "fake": 300,
+        "real": 300
+    },
+    "training_source_videos": 280,
+    "validation_source_videos": 60,
+    "train_validation_video_overlap": 0,
+    "training_losses": [
+        0.6972112865610556,
+        0.6896990883079442,
+        0.6616755527528849,
+        0.5782823759046468,
+        0.5209111754189838
+    ],
+    "validation_accuracies": [
+        40.666666666666664,
+        50.5,
+        54.333333333333336,
+        53.333333333333336,
+        51.333333333333336
+    ],
+    "best_epoch": 3,
+    "best_val_accuracy": 54.333333333333336,
+    "final_val_accuracy": 51.333333333333336,
+    "final_training_loss": 0.5209111754189838,
+    "checkpoint_path": "/content/drive/MyDrive/deepfake_project/saved_models/baseline_cnn.pth",
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json"
+}

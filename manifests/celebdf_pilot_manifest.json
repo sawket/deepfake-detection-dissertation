@@ -1,0 +1,252 @@
+{
+  "dataset": "Celeb-DF v2",
+  "kaggle_dataset": "reubensuju/celeb-df-v2",
+  "seed": 42,
+  "frames_per_video": 10,
+  "face_margin_ratio": 0.15,
+  "face_size": 224,
+  "real_videos": [
+    {
+      "class": "real",
+      "video_id": "real__000__00064",
+      "relative_source_path": "YouTube-real/00064.mp4",
+      "source_filename": "00064.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__001__id21_0006",
+      "relative_source_path": "Celeb-real/id21_0006.mp4",
+      "source_filename": "id21_0006.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__002__id11_0005",
+      "relative_source_path": "Celeb-real/id11_0005.mp4",
+      "source_filename": "id11_0005.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__003__00169",
+      "relative_source_path": "YouTube-real/00169.mp4",
+      "source_filename": "00169.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__004__id37_0002",
+      "relative_source_path": "Celeb-real/id37_0002.mp4",
+      "source_filename": "id37_0002.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__005__id34_0001",
+      "relative_source_path": "Celeb-real/id34_0001.mp4",
+      "source_filename": "id34_0001.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__006__id31_0009",
+      "relative_source_path": "Celeb-real/id31_0009.mp4",
+      "source_filename": "id31_0009.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__007__id24_0004",
+      "relative_source_path": "Celeb-real/id24_0004.mp4",
+      "source_filename": "id24_0004.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__008__00164",
+      "relative_source_path": "YouTube-real/00164.mp4",
+      "source_filename": "00164.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__009__id20_0006",
+      "relative_source_path": "Celeb-real/id20_0006.mp4",
+      "source_filename": "id20_0006.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__010__00102",
+      "relative_source_path": "YouTube-real/00102.mp4",
+      "source_filename": "00102.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__011__00168",
+      "relative_source_path": "YouTube-real/00168.mp4",
+      "source_filename": "00168.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__012__id6_0008",
+      "relative_source_path": "Celeb-real/id6_0008.mp4",
+      "source_filename": "id6_0008.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__013__id1_0001",
+      "relative_source_path": "Celeb-real/id1_0001.mp4",
+      "source_filename": "id1_0001.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__014__00014",
+      "relative_source_path": "YouTube-real/00014.mp4",
+      "source_filename": "00014.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__015__id51_0002",
+      "relative_source_path": "Celeb-real/id51_0002.mp4",
+      "source_filename": "id51_0002.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__016__id12_0001",
+      "relative_source_path": "Celeb-real/id12_0001.mp4",
+      "source_filename": "id12_0001.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__017__id11_0010",
+      "relative_source_path": "Celeb-real/id11_0010.mp4",
+      "source_filename": "id11_0010.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__018__id1_0007",
+      "relative_source_path": "Celeb-real/id1_0007.mp4",
+      "source_filename": "id1_0007.mp4"
+    },
+    {
+      "class": "real",
+      "video_id": "real__019__id31_0004",
+      "relative_source_path": "Celeb-real/id31_0004.mp4",
+      "source_filename": "id31_0004.mp4"
+    }
+  ],
+  "fake_videos": [
+    {
+      "class": "fake",
+      "video_id": "fake__000__id28_id22_0005",
+      "relative_source_path": "Celeb-synthesis/id28_id22_0005.mp4",
+      "source_filename": "id28_id22_0005.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__001__id46_id42_0000",
+      "relative_source_path": "Celeb-synthesis/id46_id42_0000.mp4",
+      "source_filename": "id46_id42_0000.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__002__id54_id53_0006",
+      "relative_source_path": "Celeb-synthesis/id54_id53_0006.mp4",
+      "source_filename": "id54_id53_0006.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__003__id16_id17_0013",
+      "relative_source_path": "Celeb-synthesis/id16_id17_0013.mp4",
+      "source_filename": "id16_id17_0013.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__004__id50_id49_0009",
+      "relative_source_path": "Celeb-synthesis/id50_id49_0009.mp4",
+      "source_filename": "id50_id49_0009.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__005__id26_id21_0005",
+      "relative_source_path": "Celeb-synthesis/id26_id21_0005.mp4",
+      "source_filename": "id26_id21_0005.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__006__id6_id0_0004",
+      "relative_source_path": "Celeb-synthesis/id6_id0_0004.mp4",
+      "source_filename": "id6_id0_0004.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__007__id4_id1_0005",
+      "relative_source_path": "Celeb-synthesis/id4_id1_0005.mp4",
+      "source_filename": "id4_id1_0005.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__008__id38_id31_0004",
+      "relative_source_path": "Celeb-synthesis/id38_id31_0004.mp4",
+      "source_filename": "id38_id31_0004.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__009__id27_id24_0006",
+      "relative_source_path": "Celeb-synthesis/id27_id24_0006.mp4",
+      "source_filename": "id27_id24_0006.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__010__id3_id37_0001",
+      "relative_source_path": "Celeb-synthesis/id3_id37_0001.mp4",
+      "source_filename": "id3_id37_0001.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__011__id53_id51_0002",
+      "relative_source_path": "Celeb-synthesis/id53_id51_0002.mp4",
+      "source_filename": "id53_id51_0002.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__012__id2_id30_0004",
+      "relative_source_path": "Celeb-synthesis/id2_id30_0004.mp4",
+      "source_filename": "id2_id30_0004.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__013__id0_id26_0002",
+      "relative_source_path": "Celeb-synthesis/id0_id26_0002.mp4",
+      "source_filename": "id0_id26_0002.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__014__id23_id26_0000",
+      "relative_source_path": "Celeb-synthesis/id23_id26_0000.mp4",
+      "source_filename": "id23_id26_0000.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__015__id38_id34_0006",
+      "relative_source_path": "Celeb-synthesis/id38_id34_0006.mp4",
+      "source_filename": "id38_id34_0006.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__016__id32_id31_0005",
+      "relative_source_path": "Celeb-synthesis/id32_id31_0005.mp4",
+      "source_filename": "id32_id31_0005.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__017__id2_id30_0002",
+      "relative_source_path": "Celeb-synthesis/id2_id30_0002.mp4",
+      "source_filename": "id2_id30_0002.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__018__id23_id20_0001",
+      "relative_source_path": "Celeb-synthesis/id23_id20_0001.mp4",
+      "source_filename": "id23_id20_0001.mp4"
+    },
+    {
+      "class": "fake",
+      "video_id": "fake__019__id27_id19_0007",
+      "relative_source_path": "Celeb-synthesis/id27_id19_0007.mp4",
+      "source_filename": "id27_id19_0007.mp4"
+    }
+  ]
+}

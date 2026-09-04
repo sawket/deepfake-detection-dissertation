@@ -1,0 +1,130 @@
+{
+    "experiment": "E4",
+    "evaluation_dataset": "Celeb-DF v2 fixed pilot",
+    "evaluation_level": "frame_and_video",
+    "training_dataset": "FaceForensics++ clean video-level split",
+    "evaluation_type": "cross-dataset without retraining or adaptation",
+    "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0_fsbi_dwt_best.pth",
+    "preprocessing": "Celeb-DF RetinaFace crop with 15% margin; resize 224x224; scale to [0,1]; official FSBI sym2/reflect DWT approximation averaged with the source channel; no clipping; no ImageNet normalisation",
+    "frequency_transform": {
+        "source": "official FSBI get_dwt_rgb adaptation",
+        "wavelet": "sym2",
+        "mode": "reflect",
+        "applied_to": "both genuine real and genuine manipulated test crops",
+        "clipped_or_renormalised": false
+    },
+    "synthetic_sbi_used_during_test": false,
+    "class_to_idx": {
+        "real": 0,
+        "fake": 1
+    },
+    "fake_output_index": 1,
+    "decision_threshold": 0.5,
+    "frames_evaluated": 400,
+    "source_videos_evaluated": 40,
+    "external_manifest_path": "/content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json",
+    "pilot_videos": {
+        "real": 20,
+        "fake": 20
+    },
+    "frames_per_video": 10,
+    "external_set_used_for_tuning": false,
+    "accuracy": 0.5925,
+    "macro_precision": 0.6658374792703151,
+    "macro_recall": 0.5925,
+    "macro_f1": 0.5418484867649023,
+    "fake_recall": 0.26,
+    "roc_auc": 0.6813,
+    "confusion_matrix_order": [
+        "real",
+        "fake"
+    ],
+    "confusion_matrix": [
+        [
+            185,
+            15
+        ],
+        [
+            148,
+            52
+        ]
+    ],
+    "classification_report": {
+        "real": {
+            "precision": 0.5555555555555556,
+            "recall": 0.925,
+            "f1-score": 0.6941838649155723,
+            "support": 200.0
+        },
+        "fake": {
+            "precision": 0.7761194029850746,
+            "recall": 0.26,
+            "f1-score": 0.3895131086142322,
+            "support": 200.0
+        },
+        "accuracy": 0.5925,
+        "macro avg": {
+            "precision": 0.6658374792703151,
+            "recall": 0.5925,
+            "f1-score": 0.5418484867649023,
+            "support": 400.0
+        },
+        "weighted avg": {
+            "precision": 0.6658374792703151,
+            "recall": 0.5925,
+            "f1-score": 0.5418484867649023,
+            "support": 400.0
+        }
+    },
+    "video_level": {
+        "aggregation": "mean fake probability across frames",
+        "videos_evaluated": 40,
+        "accuracy": 0.625,
+        "macro_precision": 0.7164502164502164,
+        "macro_recall": 0.625,
+        "macro_f1": 0.5807127882599581,
+        "fake_recall": 0.3,
+        "roc_auc": 0.705,
+        "confusion_matrix_order": [
+            "real",
+            "fake"
+        ],
+        "confusion_matrix": [
+            [
+                19,
+                1
+            ],
+            [
+                14,
+                6
+            ]
+        ],
+        "classification_report": {
+            "real": {
+                "precision": 0.5757575757575758,
+                "recall": 0.95,
+                "f1-score": 0.7169811320754716,
+                "support": 20.0
+            },
+            "fake": {
+                "precision": 0.8571428571428571,
+                "recall": 0.3,
+                "f1-score": 0.4444444444444444,
+                "support": 20.0
+            },
+            "accuracy": 0.625,
+            "macro avg": {
+                "precision": 0.7164502164502164,
+                "recall": 0.625,
+                "f1-score": 0.5807127882599581,
+                "support": 40.0
+            },
+            "weighted avg": {
+                "precision": 0.7164502164502164,
+                "recall": 0.625,
+                "f1-score": 0.5807127882599581,
+                "support": 40.0
+            }
+        }
+    }
+}

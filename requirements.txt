@@ -1,0 +1,24 @@
+# PyTorch is supplied by Google Colab.
+# Leaving these unpinned allows Colab to use its compatible CPU or GPU build.
+torch
+torchvision
+
+numpy==2.1.3
+pandas==2.2.3
+opencv-python==5.0.0.93
+Pillow==11.3.0
+scikit-learn==1.6.1
+matplotlib==3.10.0
+seaborn==0.13.2
+kagglehub==1.0.2
+retina-face==0.0.18
+tf-keras==2.20.1
+imutils==0.5.4
+dlib==19.24.6
+albumentations==2.0.8
+scipy==1.16.3
+scikit-image==0.25.2
+PyWavelets==1.9.0
+torch-dct==0.1.6
+gradio==6.26.0
+tqdm==4.67.3

@@ -1,0 +1,64 @@
+{
+    "experiment": "E2.1",
+    "research_question": "Does the full fine-tuning regimen improve over frozen E2?",
+    "model": "EfficientNet-B0",
+    "training_strategy": "Full fine-tuning of all parameters",
+    "checkpoint_strategy": "final epoch",
+    "transfer_learning": true,
+    "pretrained_on": "ImageNet",
+    "seed": 42,
+    "epochs": 10,
+    "batch_size": 32,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.0001,
+    "optimizer": "Adam over all model parameters",
+    "loss_function": "CrossEntropyLoss",
+    "preprocessing": "EfficientNet_B0_Weights.DEFAULT.transforms()",
+    "class_mapping": {
+        "fake": 0,
+        "real": 1
+    },
+    "training_class_counts": {
+        "fake": 1400,
+        "real": 1400
+    },
+    "validation_class_counts": {
+        "fake": 300,
+        "real": 300
+    },
+    "training_source_videos": 280,
+    "validation_source_videos": 60,
+    "train_validation_video_overlap": 0,
+    "trainable_parameters": 4010110,
+    "total_parameters": 4010110,
+    "training_losses": [
+        0.6806953420693224,
+        0.6347727484323762,
+        0.5970073230564594,
+        0.5680252354253422,
+        0.5379725034264001,
+        0.5111027204177596,
+        0.4815698377788067,
+        0.46273881603371014,
+        0.44877009906552057,
+        0.42501949112523685
+    ],
+    "validation_accuracies": [
+        59.833333333333336,
+        59.166666666666664,
+        60.166666666666664,
+        61.0,
+        61.5,
+        60.833333333333336,
+        62.5,
+        61.666666666666664,
+        64.5,
+        61.833333333333336
+    ],
+    "best_epoch": 9,
+    "best_val_accuracy": 64.5,
+    "final_val_accuracy": 61.833333333333336,
+    "final_training_loss": 0.42501949112523685,
+    "checkpoint_path": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0_finetuned.pth",
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json"
+}

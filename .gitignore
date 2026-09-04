@@ -1,0 +1,35 @@
+# Research datasets and generated data
+dataset/
+extracted_frames/
+face_dataset/
+face_dataset_b4/
+sbi_dataset/
+celebdf_v2/pilot_frames/
+celebdf_v2/pilot_faces/
+celebdf_v2/pilot_faces_b4/
+
+# Videos and archives
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.zip
+
+# Model checkpoints and external model assets
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.tar
+
+# Credentials and environment secrets
+kaggle.json
+credentials.json
+client_secret.json
+.env
+
+# Temporary files
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+Thumbs.db

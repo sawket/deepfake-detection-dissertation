@@ -1,0 +1,200 @@
+{
+  "configuration": "E3b-T",
+  "base_model": "E3b official SBI EfficientNet-B0",
+  "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0_official_sbi_best.pth",
+  "threshold_status": "secondary application-oriented operating point",
+  "canonical_threshold_retained": 0.5,
+  "selected_threshold": 0.17,
+  "selection_domain": "FaceForensics++ validation face crops",
+  "selection_level": "video",
+  "video_aggregation": "mean fake probability across available frames",
+  "selection_metric": "video_macro_f1",
+  "candidate_thresholds": {
+    "minimum": 0.01,
+    "maximum": 0.99,
+    "step": 0.01
+  },
+  "tie_break_rule": "higher fake recall, then threshold closest to 0.5, then lower threshold",
+  "preprocessing": "RetinaFace crop; resize 224x224; RGB float32 scale [0,1]; no ImageNet normalisation",
+  "class_to_index": {
+    "real": 0,
+    "fake": 1
+  },
+  "fake_output_index": 1,
+  "validation_videos": 60,
+  "default_validation_metrics": {
+    "threshold": 0.5,
+    "accuracy": 0.6666666666666666,
+    "macro_precision": 0.8,
+    "macro_recall": 0.6666666666666666,
+    "macro_f1": 0.625,
+    "real_recall": 1.0,
+    "fake_recall": 0.3333333333333333,
+    "roc_auc": 0.8544444444444445,
+    "confusion_matrix": [
+      [
+        30,
+        0
+      ],
+      [
+        20,
+        10
+      ]
+    ]
+  },
+  "selected_validation_metrics": {
+    "threshold": 0.17,
+    "accuracy": 0.8,
+    "macro_precision": 0.8013392857142857,
+    "macro_recall": 0.8,
+    "macro_f1": 0.7997775305895439,
+    "real_recall": 0.8333333333333334,
+    "fake_recall": 0.7666666666666667,
+    "roc_auc": 0.8544444444444445,
+    "confusion_matrix": [
+      [
+        25,
+        5
+      ],
+      [
+        7,
+        23
+      ]
+    ]
+  },
+  "test_or_external_labels_used_for_selection": false,
+  "comparison_records": [
+    {
+      "domain": "ffpp_validation",
+      "threshold_name": "default",
+      "threshold": 0.5,
+      "accuracy": 0.6666666666666666,
+      "macro_precision": 0.8,
+      "macro_recall": 0.6666666666666666,
+      "macro_f1": 0.625,
+      "real_recall": 1.0,
+      "fake_recall": 0.3333333333333333,
+      "roc_auc": 0.8544444444444445,
+      "confusion_matrix": [
+        [
+          30,
+          0
+        ],
+        [
+          20,
+          10
+        ]
+      ]
+    },
+    {
+      "domain": "ffpp_validation",
+      "threshold_name": "selected_E3b_T",
+      "threshold": 0.17,
+      "accuracy": 0.8,
+      "macro_precision": 0.8013392857142857,
+      "macro_recall": 0.8,
+      "macro_f1": 0.7997775305895439,
+      "real_recall": 0.8333333333333334,
+      "fake_recall": 0.7666666666666667,
+      "roc_auc": 0.8544444444444445,
+      "confusion_matrix": [
+        [
+          25,
+          5
+        ],
+        [
+          7,
+          23
+        ]
+      ]
+    },
+    {
+      "domain": "ffpp_test",
+      "threshold_name": "default",
+      "threshold": 0.5,
+      "accuracy": 0.5833333333333334,
+      "macro_precision": 0.7727272727272727,
+      "macro_recall": 0.5833333333333334,
+      "macro_f1": 0.4957983193277311,
+      "real_recall": 1.0,
+      "fake_recall": 0.16666666666666666,
+      "roc_auc": 0.8400000000000001,
+      "confusion_matrix": [
+        [
+          30,
+          0
+        ],
+        [
+          25,
+          5
+        ]
+      ]
+    },
+    {
+      "domain": "ffpp_test",
+      "threshold_name": "selected_E3b_T",
+      "threshold": 0.17,
+      "accuracy": 0.7,
+      "macro_precision": 0.7556818181818181,
+      "macro_recall": 0.7,
+      "macro_f1": 0.6827262044653349,
+      "real_recall": 0.9333333333333333,
+      "fake_recall": 0.4666666666666667,
+      "roc_auc": 0.8400000000000001,
+      "confusion_matrix": [
+        [
+          28,
+          2
+        ],
+        [
+          16,
+          14
+        ]
+      ]
+    },
+    {
+      "domain": "celebdf_v2_pilot",
+      "threshold_name": "default",
+      "threshold": 0.5,
+      "accuracy": 0.725,
+      "macro_precision": 0.7821316614420062,
+      "macro_recall": 0.725,
+      "macro_f1": 0.7103357472021066,
+      "real_recall": 0.95,
+      "fake_recall": 0.5,
+      "roc_auc": 0.8025,
+      "confusion_matrix": [
+        [
+          19,
+          1
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "domain": "celebdf_v2_pilot",
+      "threshold_name": "selected_E3b_T",
+      "threshold": 0.17,
+      "accuracy": 0.675,
+      "macro_precision": 0.6790281329923273,
+      "macro_recall": 0.675,
+      "macro_f1": 0.6731615336266499,
+      "real_recall": 0.6,
+      "fake_recall": 0.75,
+      "roc_auc": 0.8025,
+      "confusion_matrix": [
+        [
+          12,
+          8
+        ],
+        [
+          5,
+          15
+        ]
+      ]
+    }
+  ]
+}

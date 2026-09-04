@@ -1,0 +1,114 @@
+{
+    "experiment": "E1",
+    "evaluation_dataset": "FaceForensics++ test split",
+    "evaluation_level": "frame_and_video",
+    "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/baseline_cnn.pth",
+    "preprocessing": "Resize 128x128; ToTensor; Normalize mean/std 0.5",
+    "class_to_idx": {
+        "fake": 0,
+        "real": 1
+    },
+    "fake_output_index": 0,
+    "decision_threshold": 0.5,
+    "frames_evaluated": 600,
+    "source_videos_evaluated": 60,
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json",
+    "accuracy": 0.455,
+    "macro_precision": 0.45491534102926606,
+    "macro_recall": 0.455,
+    "macro_f1": 0.45474403261531104,
+    "fake_recall": 0.43333333333333335,
+    "roc_auc": 0.45523333333333327,
+    "confusion_matrix_order": [
+        "real",
+        "fake"
+    ],
+    "confusion_matrix": [
+        [
+            143,
+            157
+        ],
+        [
+            170,
+            130
+        ]
+    ],
+    "classification_report": {
+        "real": {
+            "precision": 0.45686900958466453,
+            "recall": 0.4766666666666667,
+            "f1-score": 0.466557911908646,
+            "support": 300.0
+        },
+        "fake": {
+            "precision": 0.4529616724738676,
+            "recall": 0.43333333333333335,
+            "f1-score": 0.44293015332197616,
+            "support": 300.0
+        },
+        "accuracy": 0.455,
+        "macro avg": {
+            "precision": 0.45491534102926606,
+            "recall": 0.455,
+            "f1-score": 0.45474403261531104,
+            "support": 600.0
+        },
+        "weighted avg": {
+            "precision": 0.45491534102926606,
+            "recall": 0.455,
+            "f1-score": 0.4547440326153111,
+            "support": 600.0
+        }
+    },
+    "video_level": {
+        "aggregation": "mean fake probability across frames",
+        "videos_evaluated": 60,
+        "accuracy": 0.4166666666666667,
+        "macro_precision": 0.4158249158249158,
+        "macro_recall": 0.41666666666666663,
+        "macro_f1": 0.4152046783625731,
+        "fake_recall": 0.36666666666666664,
+        "roc_auc": 0.44888888888888884,
+        "confusion_matrix_order": [
+            "real",
+            "fake"
+        ],
+        "confusion_matrix": [
+            [
+                14,
+                16
+            ],
+            [
+                19,
+                11
+            ]
+        ],
+        "classification_report": {
+            "real": {
+                "precision": 0.42424242424242425,
+                "recall": 0.4666666666666667,
+                "f1-score": 0.4444444444444444,
+                "support": 30.0
+            },
+            "fake": {
+                "precision": 0.4074074074074074,
+                "recall": 0.36666666666666664,
+                "f1-score": 0.38596491228070173,
+                "support": 30.0
+            },
+            "accuracy": 0.4166666666666667,
+            "macro avg": {
+                "precision": 0.4158249158249158,
+                "recall": 0.41666666666666663,
+                "f1-score": 0.4152046783625731,
+                "support": 60.0
+            },
+            "weighted avg": {
+                "precision": 0.4158249158249158,
+                "recall": 0.4166666666666667,
+                "f1-score": 0.4152046783625731,
+                "support": 60.0
+            }
+        }
+    }
+}

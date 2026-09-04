@@ -1,0 +1,114 @@
+{
+    "experiment": "E2.1",
+    "evaluation_dataset": "FaceForensics++ test split",
+    "evaluation_level": "frame_and_video",
+    "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0_finetuned.pth",
+    "preprocessing": "EfficientNet_B0_Weights.DEFAULT.transforms()",
+    "class_to_idx": {
+        "fake": 0,
+        "real": 1
+    },
+    "fake_output_index": 0,
+    "decision_threshold": 0.5,
+    "frames_evaluated": 600,
+    "source_videos_evaluated": 60,
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json",
+    "accuracy": 0.5933333333333334,
+    "macro_precision": 0.5936705473036263,
+    "macro_recall": 0.5933333333333333,
+    "macro_f1": 0.5929670036366064,
+    "fake_recall": 0.6233333333333333,
+    "roc_auc": 0.6216444444444444,
+    "confusion_matrix_order": [
+        "real",
+        "fake"
+    ],
+    "confusion_matrix": [
+        [
+            169,
+            131
+        ],
+        [
+            113,
+            187
+        ]
+    ],
+    "classification_report": {
+        "real": {
+            "precision": 0.599290780141844,
+            "recall": 0.5633333333333334,
+            "f1-score": 0.5807560137457045,
+            "support": 300.0
+        },
+        "fake": {
+            "precision": 0.5880503144654088,
+            "recall": 0.6233333333333333,
+            "f1-score": 0.6051779935275081,
+            "support": 300.0
+        },
+        "accuracy": 0.5933333333333334,
+        "macro avg": {
+            "precision": 0.5936705473036263,
+            "recall": 0.5933333333333333,
+            "f1-score": 0.5929670036366064,
+            "support": 600.0
+        },
+        "weighted avg": {
+            "precision": 0.5936705473036263,
+            "recall": 0.5933333333333334,
+            "f1-score": 0.5929670036366063,
+            "support": 600.0
+        }
+    },
+    "video_level": {
+        "aggregation": "mean fake probability across frames",
+        "videos_evaluated": 60,
+        "accuracy": 0.6166666666666667,
+        "macro_precision": 0.6167964404894327,
+        "macro_recall": 0.6166666666666667,
+        "macro_f1": 0.6165601555987774,
+        "fake_recall": 0.6333333333333333,
+        "roc_auc": 0.62,
+        "confusion_matrix_order": [
+            "real",
+            "fake"
+        ],
+        "confusion_matrix": [
+            [
+                18,
+                12
+            ],
+            [
+                11,
+                19
+            ]
+        ],
+        "classification_report": {
+            "real": {
+                "precision": 0.6206896551724138,
+                "recall": 0.6,
+                "f1-score": 0.6101694915254238,
+                "support": 30.0
+            },
+            "fake": {
+                "precision": 0.6129032258064516,
+                "recall": 0.6333333333333333,
+                "f1-score": 0.6229508196721312,
+                "support": 30.0
+            },
+            "accuracy": 0.6166666666666667,
+            "macro avg": {
+                "precision": 0.6167964404894327,
+                "recall": 0.6166666666666667,
+                "f1-score": 0.6165601555987774,
+                "support": 60.0
+            },
+            "weighted avg": {
+                "precision": 0.6167964404894327,
+                "recall": 0.6166666666666667,
+                "f1-score": 0.6165601555987775,
+                "support": 60.0
+            }
+        }
+    }
+}

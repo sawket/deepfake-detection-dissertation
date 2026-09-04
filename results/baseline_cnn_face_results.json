@@ -1,0 +1,66 @@
+{
+    "experiment": "E1.1",
+    "research_question": "Does RetinaFace face cropping improve the shallow CNN relative to E1?",
+    "model": "BaselineCNN Face-Cropped",
+    "checkpoint_strategy": "final epoch",
+    "seed": 42,
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "loss_function": "CrossEntropyLoss",
+    "image_size": [
+        128,
+        128
+    ],
+    "normalization_mean": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "normalization_std": [
+        0.5,
+        0.5,
+        0.5
+    ],
+    "face_crop_saved_size": [
+        224,
+        224
+    ],
+    "face_margin_ratio": 0.15,
+    "class_mapping": {
+        "fake": 0,
+        "real": 1
+    },
+    "training_class_counts": {
+        "fake": 1398,
+        "real": 1342
+    },
+    "validation_class_counts": {
+        "fake": 300,
+        "real": 290
+    },
+    "training_source_videos": 280,
+    "validation_source_videos": 60,
+    "train_validation_video_overlap": 0,
+    "training_losses": [
+        0.6718556946793268,
+        0.6007256857877554,
+        0.5589989101470902,
+        0.5199896440256474,
+        0.47517510832742205
+    ],
+    "validation_accuracies": [
+        57.45762711864407,
+        56.610169491525426,
+        64.40677966101696,
+        64.0677966101695,
+        59.152542372881356
+    ],
+    "best_epoch": 3,
+    "best_val_accuracy": 64.40677966101696,
+    "final_val_accuracy": 59.152542372881356,
+    "final_training_loss": 0.47517510832742205,
+    "checkpoint_path": "/content/drive/MyDrive/deepfake_project/saved_models/baseline_cnn_face.pth",
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json"
+}

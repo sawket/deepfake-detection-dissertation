@@ -1,0 +1,53 @@
+{
+    "experiment": "E2",
+    "research_question": "Does a frozen ImageNet EfficientNet-B0 improve on E1?",
+    "model": "EfficientNet-B0",
+    "training_strategy": "Frozen feature extractor and fixed BatchNorm statistics",
+    "checkpoint_strategy": "final epoch",
+    "transfer_learning": true,
+    "pretrained_on": "ImageNet",
+    "seed": 42,
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "optimizer": "Adam classifier parameters only",
+    "loss_function": "CrossEntropyLoss",
+    "preprocessing": "EfficientNet_B0_Weights.DEFAULT.transforms()",
+    "class_mapping": {
+        "fake": 0,
+        "real": 1
+    },
+    "training_class_counts": {
+        "fake": 1400,
+        "real": 1400
+    },
+    "validation_class_counts": {
+        "fake": 300,
+        "real": 300
+    },
+    "training_source_videos": 280,
+    "validation_source_videos": 60,
+    "train_validation_video_overlap": 0,
+    "trainable_parameters": 2562,
+    "frozen_parameters": 4007548,
+    "training_losses": [
+        0.6765228428623893,
+        0.6295899179848757,
+        0.6029397608204321,
+        0.588010011748834,
+        0.5710208226333965
+    ],
+    "validation_accuracies": [
+        52.666666666666664,
+        55.0,
+        57.833333333333336,
+        53.833333333333336,
+        55.333333333333336
+    ],
+    "best_epoch": 3,
+    "best_val_accuracy": 57.833333333333336,
+    "final_val_accuracy": 55.333333333333336,
+    "final_training_loss": 0.5710208226333965,
+    "checkpoint_path": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0.pth",
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json"
+}

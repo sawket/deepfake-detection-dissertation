@@ -1,0 +1,53 @@
+{
+  "experiment": "E1",
+  "training_dataset": "FaceForensics++",
+  "external_test_dataset": "Celeb-DF v2 pilot",
+  "external_input": "full_frame",
+  "evaluation_type": "cross-dataset; no retraining or adaptation",
+  "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/baseline_cnn.pth",
+  "decision_threshold": 0.5,
+  "model_fake_output_index": 0,
+  "video_aggregation": "mean fake probability across 10 frames",
+  "frames_evaluated": 400,
+  "videos_evaluated": 40,
+  "frame_level": {
+    "accuracy": 0.395,
+    "macro_precision": 0.3046875,
+    "macro_recall": 0.395,
+    "macro_f1": 0.31592039800995025,
+    "fake_precision": 0.171875,
+    "fake_recall": 0.055,
+    "fake_f1": 0.08333333333333333,
+    "roc_auc": 0.27199999999999996,
+    "confusion_matrix": [
+      [
+        147,
+        53
+      ],
+      [
+        189,
+        11
+      ]
+    ]
+  },
+  "video_level": {
+    "accuracy": 0.4,
+    "macro_precision": 0.30392156862745096,
+    "macro_recall": 0.4,
+    "macro_f1": 0.3162393162393162,
+    "fake_precision": 0.16666666666666666,
+    "fake_recall": 0.05,
+    "fake_f1": 0.07692307692307693,
+    "roc_auc": 0.2625,
+    "confusion_matrix": [
+      [
+        15,
+        5
+      ],
+      [
+        19,
+        1
+      ]
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+    "experiment": "E4",
+    "evaluation_dataset": "FaceForensics++ test split",
+    "evaluation_level": "frame_and_video",
+    "checkpoint": "/content/drive/MyDrive/deepfake_project/saved_models/efficientnet_b0_fsbi_dwt_best.pth",
+    "preprocessing": "Precomputed RetinaFace crop with 15% margin; resize 224x224; scale to [0,1]; official FSBI sym2/reflect DWT approximation averaged with the source channel; no clipping; no ImageNet normalisation",
+    "frequency_transform": {
+        "source": "official FSBI get_dwt_rgb adaptation",
+        "wavelet": "sym2",
+        "mode": "reflect",
+        "applied_to": "both genuine real and genuine manipulated test crops",
+        "clipped_or_renormalised": false
+    },
+    "synthetic_sbi_used_during_test": false,
+    "class_to_idx": {
+        "real": 0,
+        "fake": 1
+    },
+    "fake_output_index": 1,
+    "decision_threshold": 0.5,
+    "frames_evaluated": 591,
+    "source_videos_evaluated": 60,
+    "split_manifest_path": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json",
+    "accuracy": 0.61082910321489,
+    "macro_precision": 0.7383431363248268,
+    "macro_recall": 0.6151039996334815,
+    "macro_f1": 0.5552028795811519,
+    "fake_recall": 0.25418060200668896,
+    "roc_auc": 0.6551976909332478,
+    "confusion_matrix_order": [
+        "real",
+        "fake"
+    ],
+    "confusion_matrix": [
+        [
+            285,
+            7
+        ],
+        [
+            223,
+            76
+        ]
+    ],
+    "classification_report": {
+        "real": {
+            "precision": 0.5610236220472441,
+            "recall": 0.976027397260274,
+            "f1-score": 0.7125,
+            "support": 292.0
+        },
+        "fake": {
+            "precision": 0.9156626506024096,
+            "recall": 0.25418060200668896,
+            "f1-score": 0.39790575916230364,
+            "support": 299.0
+        },
+        "accuracy": 0.61082910321489,
+        "macro avg": {
+            "precision": 0.7383431363248268,
+            "recall": 0.6151039996334815,
+            "f1-score": 0.5552028795811519,
+            "support": 591.0
+        },
+        "weighted avg": {
+            "precision": 0.7404433674584022,
+            "recall": 0.61082910321489,
+            "f1-score": 0.5533398003206917,
+            "support": 591.0
+        }
+    },
+    "video_level": {
+        "aggregation": "mean fake probability across frames",
+        "videos_evaluated": 60,
+        "accuracy": 0.6,
+        "macro_precision": 0.7777777777777778,
+        "macro_recall": 0.6,
+        "macro_f1": 0.5238095238095238,
+        "fake_recall": 0.2,
+        "roc_auc": 0.7544444444444445,
+        "confusion_matrix_order": [
+            "real",
+            "fake"
+        ],
+        "confusion_matrix": [
+            [
+                30,
+                0
+            ],
+            [
+                24,
+                6
+            ]
+        ],
+        "classification_report": {
+            "real": {
+                "precision": 0.5555555555555556,
+                "recall": 1.0,
+                "f1-score": 0.7142857142857143,
+                "support": 30.0
+            },
+            "fake": {
+                "precision": 1.0,
+                "recall": 0.2,
+                "f1-score": 0.3333333333333333,
+                "support": 30.0
+            },
+            "accuracy": 0.6,
+            "macro avg": {
+                "precision": 0.7777777777777778,
+                "recall": 0.6,
+                "f1-score": 0.5238095238095238,
+                "support": 60.0
+            },
+            "weighted avg": {
+                "precision": 0.7777777777777779,
+                "recall": 0.6,
+                "f1-score": 0.5238095238095238,
+                "support": 60.0
+            }
+        }
+    }
+}

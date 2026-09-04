@@ -1,0 +1,19 @@
+{
+  "purpose": "native EfficientNet-B4 test face preparation",
+  "face_detector": "RetinaFace",
+  "face_selection": "largest detected face",
+  "face_margin_ratio": 0.15,
+  "saved_face_size": [
+    380,
+    380
+  ],
+  "ffpp_source": "/content/drive/MyDrive/deepfake_project/dataset/test",
+  "ffpp_output": "/content/drive/MyDrive/deepfake_project/face_dataset_b4/test",
+  "ffpp_manifest": "/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json",
+  "celebdf_source": "/content/drive/MyDrive/deepfake_project/celebdf_v2/pilot_frames",
+  "celebdf_output": "/content/drive/MyDrive/deepfake_project/celebdf_v2/pilot_faces_b4",
+  "celebdf_manifest": "/content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json",
+  "augmentation": false,
+  "normalisation_when_saved": false,
+  "existing_224_crops_used_as_source": false
+}
