@@ -73,17 +73,11 @@ manifests/celebdf_pilot_manifest.json
 
 They preserve the exact source-video split and external pilot selection used in the dissertation.
 
-Before preparing the datasets, copy both files into:
-
-```text
-/content/drive/MyDrive/deepfake_project/
-```
-
-The final Google Drive locations must therefore be:
+Before preparing the datasets, copy each manifest into the location expected by its preparation notebook:
 
 ```text
 /content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json
-/content/drive/MyDrive/deepfake_project/celebdf_pilot_manifest.json
+/content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json
 ```
 
 Using these files prevents the notebooks from generating a different split or pilot selection.
@@ -127,11 +121,14 @@ Run all cells. This mounts Google Drive and creates the expected project directo
 
 ## Step 3: Install the Fixed Manifests
 
-After the project directories have been created, copy the two repository manifest files into the root of the Google Drive project directory:
+After the project directories have been created, copy each repository manifest to its expected Google Drive location:
 
 ```text
-/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json
-/content/drive/MyDrive/deepfake_project/celebdf_pilot_manifest.json
+manifests/ffpp_video_split_manifest.json
+→ /content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json
+
+manifests/celebdf_pilot_manifest.json
+→ /content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json
 ```
 
 Do this before running the FF++ or Celeb-DF preparation stages.
