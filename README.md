@@ -92,79 +92,106 @@ There are two supported workflows:
 
 The checkpoint-based evaluation workflow is recommended when the objective is to verify the reported results without repeating all training runs.
 
-## Step 1: Open the Repository in Google Colab
+## Step 1: Open the Setup Notebook in Google Colab
 
 Open Google Colab:
 
 https://colab.research.google.com/
 
-Select the **GitHub** tab, enter the URL of this repository, and choose the required notebook.
+Select the **GitHub** tab and enter the following repository URL:
 
-Alternatively, download an individual notebook from the `notebooks` directory and upload it to Colab.
+```text
+https://github.com/sawket/deepfake-detection-dissertation
+```
 
-## Step 2: Create the Google Drive Project Structure
-
-Open:
+Select and open:
 
 ```text
 notebooks/00_Project_Setup_and_FFPP_Data_Preparation.ipynb
 ```
 
-For the first setup-only run, set:
+Opening the notebook through the GitHub tab loads that notebook into Colab. It
+does not copy the complete repository into Google Drive.
+
+## Step 2: Create the Google Drive Project Folders
+
+In notebook `00`, set:
 
 ```python
 INSTALL_DEPENDENCIES = True
 PREPARE_FFPP_DATA = False
 ```
 
-Run all cells. This mounts Google Drive and creates the expected project directories without downloading or preparing the dataset.
+Run all cells and allow Colab to mount Google Drive when requested.
 
-## Step 3: Install the Fixed Manifests
-
-After the project directories have been created, copy each repository manifest to its expected Google Drive location:
+This setup-only run creates:
 
 ```text
-manifests/ffpp_video_split_manifest.json
+/content/drive/MyDrive/deepfake_project/
+```
+
+It also creates the subfolders required by the preparation, training and
+evaluation notebooks. FaceForensics++ is not downloaded when
+`PREPARE_FFPP_DATA` is set to `False`.
+
+## Step 3: Download and Add the Fixed Manifests
+
+After the project folders have been created, download the following manifest
+files from the repository:
+
+* [FF++ video split manifest](https://github.com/sawket/deepfake-detection-dissertation/blob/main/manifests/ffpp_video_split_manifest.json)
+* [Celeb-DF v2 pilot manifest](https://github.com/sawket/deepfake-detection-dissertation/blob/main/manifests/celebdf_pilot_manifest.json)
+
+On each GitHub file page, use the download button to save the JSON file. Keep
+the original filename unchanged.
+
+Upload the files to these Google Drive locations:
+
+```text
+ffpp_video_split_manifest.json
 → /content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json
 
-manifests/celebdf_pilot_manifest.json
+celebdf_pilot_manifest.json
 → /content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json
 ```
 
-Do this before running the FF++ or Celeb-DF preparation stages.
+These manifests preserve the FaceForensics++ source-video partitions and the
+Celeb-DF v2 pilot selection used in the dissertation.
 
 ## Step 4: Prepare FaceForensics++
 
-Return to:
-
-```text
-notebooks/00_Project_Setup_and_FFPP_Data_Preparation.ipynb
-```
-
-Set:
+Return to notebook `00` and set:
 
 ```python
 INSTALL_DEPENDENCIES = True
 PREPARE_FFPP_DATA = True
 ```
 
-Run all cells.
+Run all cells again.
 
 The notebook will:
 
-* download the FaceForensics++ source data through KaggleHub;
+* download the FaceForensics++ source videos through KaggleHub;
+* load the fixed video-level split manifest;
+* extract ten frames from each source video;
+* populate the training, validation and test folders;
+* report the number of images and source videos in each partition; and
+* check that source videos do not overlap between partitions.
 
-* load the supplied video-level split manifest;
+KaggleHub may request authentication or acceptance of the dataset conditions
+during the first download.
 
-* extract ten uniformly distributed frames per source video;
+The expected prepared dataset contains:
 
-* populate the training, validation, and test directories;
+```text
+Training:   1,400 authentic frames and 1,400 manipulated frames
+Validation:   300 authentic frames and   300 manipulated frames
+Testing:      300 authentic frames and   300 manipulated frames
+Total:      4,000 frames
+```
 
-* verify the expected image counts;
-
-* check for source-video overlap between splits.
-
-Do not continue if the final verification reports missing files, unexpected counts, or source-video leakage.
+Do not continue to the preprocessing notebooks if the final verification
+reports missing data or source-video overlap.
 
 ## Step 5: Prepare Face and SBI Inputs
 
