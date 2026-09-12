@@ -84,79 +84,93 @@ Using these files prevents the notebooks from generating a different split or pi
 
 ## Recommended Reproduction Workflow
 
-The recommended approach uses the supplied checkpoints. Retraining is optional
-and is not required to verify the reported results.
+The recommended approach uses the supplied checkpoints. Retraining is optional and is not required to reproduce the reported results.
+
+### Opening Notebooks in Google Colab
+
+1. Open [Google Colab](https://colab.research.google.com/).
+2. Select the **GitHub** tab.
+3. Enter this repository address:
+
+```text
+https://github.com/sawket/deepfake-detection-dissertation
+```
+
+4. Select the required notebook from the displayed list.
+5. Connect to Google Drive when prompted.
+
+Follow these steps whenever the instructions below ask you to open a notebook.
 
 ### Route 1: Reproduce All Results Using Checkpoints
 
-1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` from the GitHub tab
-   in Google Colab.
+1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb`.
 
-2. Use:
+2. Set:
 
-   ```python
-   INSTALL_DEPENDENCIES = True
-   PREPARE_FFPP_DATA = True
-   ```
+```python
+INSTALL_DEPENDENCIES = True
+PREPARE_FFPP_DATA = True
+```
 
-   Run all cells. The notebook creates the project folders, downloads the
-   fixed manifests and prepares the FaceForensics++ dataset.
+Run all cells. The notebook creates the project folders, downloads the fixed manifests and prepares the FaceForensics++ dataset.
 
-3. Run:
+3. Open and run:
 
-   ```text
-   02a_Face_Preprocessing.ipynb
-   02c_B4_Test_Face_Preparation.ipynb
-   ```
+```text
+02a_Face_Preprocessing.ipynb
+02c_B4_Test_Face_Preparation.ipynb
+```
 
-   Notebook `02b` is not required when using existing checkpoints.
+Notebook `02b_SBI_Preprocessing.ipynb` is not required when using the supplied checkpoints.
 
-4. Download the checkpoints described in `checkpoints/README.md` and place
-   them in:
+4. Download the checkpoints described in `checkpoints/README.md` and place them in:
 
-   ```text
-   /content/drive/MyDrive/deepfake_project/saved_models/
-   ```
+```text
+/content/drive/MyDrive/deepfake_project/saved_models/
+```
 
 5. Run the `04` notebooks to reproduce the FaceForensics++ results.
 
-6. Run `05_CelebDF_Pilot_Preparation.ipynb`, followed by the `05a`--`05k`
-   evaluation notebooks, to reproduce the external results.
+6. Run `05_CelebDF_Pilot_Preparation.ipynb` to prepare the fixed Celeb-DF v2 pilot.
+
+7. Run the `05a`–`05k` evaluation notebooks to reproduce the external results.
 
 ### Route 2: Run the Final E3b Demonstrator
 
-1. Run `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` with:
+1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb`.
 
-   ```python
-   INSTALL_DEPENDENCIES = True
-   PREPARE_FFPP_DATA = False
-   ```
+2. Set:
 
-2. Download:
+```python
+INSTALL_DEPENDENCIES = True
+PREPARE_FFPP_DATA = False
+```
 
-   ```text
-   efficientnet_b0_official_sbi_best.pth
-   ```
+Run all cells. This creates the required folders and installs the dependencies without preparing the datasets.
 
-   and place it in:
+3. Download:
 
-   ```text
-   /content/drive/MyDrive/deepfake_project/saved_models/
-   ```
+```text
+efficientnet_b0_official_sbi_best.pth
+```
 
-3. Run:
+Place it in:
 
-   ```text
-   optional/06b_E3b_Gradio_Application.ipynb
-   ```
+```text
+/content/drive/MyDrive/deepfake_project/saved_models/
+```
+
+4. Open and run:
+
+```text
+optional/06b_E3b_Gradio_Application.ipynb
+```
 
 This route does not require dataset preparation or model retraining.
 
 ## Optional Full Retraining
 
-The `02b` and `03` notebooks document the preprocessing and training used in
-the dissertation. They may be run to reproduce the complete training process,
-but this requires additional time, storage and GPU resources.
+The `02b` and `03` notebooks document the preprocessing and model training used in the dissertation. Run these notebooks only if complete retraining is required. Retraining requires additional time, Google Drive storage and GPU resources.
 
 ## Experiment Mapping
 
