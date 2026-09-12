@@ -142,10 +142,13 @@ Follow these steps whenever the instructions below ask you to open a notebook.
    /content/drive/MyDrive/deepfake_project/saved_models/
    ```
 
-6. Run the `04` evaluation notebooks to reproduce the FaceForensics++ results.
+5. Run the `04` evaluation notebooks to reproduce the FaceForensics++ results.
+   The exact notebook for each experiment is listed in the Experiment Mapping
+   table below.
 
-
-7. Run the `05a`--`05k` evaluation notebooks to reproduce the Celeb-DF v2 pilot results.
+6. Run the `05a`--`05k` evaluation notebooks to reproduce the Celeb-DF v2
+   pilot results. The exact notebook for each experiment is listed in the
+   Experiment Mapping table below.
 
 Notebook `02b_SBI_Preprocessing.ipynb` and the `03` training notebooks are required only for optional model retraining.
 ### Route 2: Run the Final E3b Demonstrator
@@ -187,19 +190,19 @@ The `02b` and `03` notebooks document the preprocessing and model training used 
 
 ## Experiment Mapping
 
-| Experiment | Description                                        |
-| ---------- | -------------------------------------------------- |
-| E1         | Shallow CNN using full frames                      |
-| E1.1       | Shallow CNN using face crops                       |
-| E2         | Frozen EfficientNet-B0 using full frames           |
-| E2.1       | Fully fine-tuned EfficientNet-B0 using full frames |
-| E2.2       | Fully fine-tuned EfficientNet-B0 using face crops  |
-| E3a        | Adapted Self-Blended Images                        |
-| E3b        | Official SBI procedure with EfficientNet-B0        |
-| E3c        | Official SBI optimisation configuration with SAM   |
-| E3d        | Official SBI procedure with EfficientNet-B4        |
-| E4         | FSBI-DWT frequency-informed configuration          |
-| E5         | FreqBlender SBI configuration with EfficientNet-B4 |
+| Experiment | Description | FF++ evaluation | Celeb-DF evaluation |
+|---|---|---|---|
+| E1 | Shallow CNN using full frames | `04a_E1_FFPP_Evaluation.ipynb` | `05a_E1_CelebDF_Evaluation.ipynb` |
+| E1.1 | Shallow CNN using face crops | `04b_E11_FFPP_Evaluation.ipynb` | `05b_E11_CelebDF_Evaluation.ipynb` |
+| E2 | Frozen EfficientNet-B0 using full frames | `04c_E2_FFPP_Evaluation.ipynb` | `05c_E2_CelebDF_Evaluation.ipynb` |
+| E2.1 | Fine-tuned EfficientNet-B0 using full frames | `04d_E21_FFPP_Evaluation.ipynb` | `05d_E21_CelebDF_Evaluation.ipynb` |
+| E2.2 | Fine-tuned EfficientNet-B0 using face crops | `04e_E22_FFPP_Evaluation.ipynb` | `05e_E22_CelebDF_Evaluation.ipynb` |
+| E3a | Adapted SBI with EfficientNet-B0 | `04f_E3a_FFPP_Evaluation.ipynb` | `05f_E3a_CelebDF_Evaluation.ipynb` |
+| E3b | Official SBI with EfficientNet-B0 | `04g_E3b_FFPP_Evaluation.ipynb` | `05g_E3b_CelebDF_Evaluation.ipynb` |
+| E3c | Official SBI with SAM | `04h_E3c_FFPP_Evaluation.ipynb` | `05h_E3c_CelebDF_Evaluation.ipynb` |
+| E3d | Official SBI with EfficientNet-B4 | `04j_E3d_B4_FFPP_Evaluation.ipynb` | `05j_E3d_B4_CelebDF_Evaluation.ipynb` |
+| E4 | FSBI-DWT with EfficientNet-B0 | `04i_E4_FSBI_DWT_FFPP_Evaluation.ipynb` | `05i_E4_FSBI_DWT_CelebDF_Evaluation.ipynb` |
+| E5 | FreqBlender SBI with EfficientNet-B4 | `04k_E5_FreqBlender_B4_FFPP_Evaluation.ipynb` | `05k_E5_FreqBlender_B4_CelebDF_Evaluation.ipynb` |
 
 ## Decision Threshold and Video Aggregation
 
