@@ -73,12 +73,13 @@ manifests/celebdf_pilot_manifest.json
 
 They preserve the exact source-video split and external pilot selection used in the dissertation.
 
-Before preparing the datasets, copy each manifest into the location expected by its preparation notebook:
+```markdown
+Notebook `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` automatically
+downloads both manifests to the required Google Drive locations when they are
+not already present. Existing manifest files are preserved.
 
-```text
-/content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json
-/content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json
-```
+The manifests ensure that the same FaceForensics++ video split and Celeb-DF v2
+pilot selection are used on every run.
 
 Using these files prevents the notebooks from generating a different split or pilot selection.
 
