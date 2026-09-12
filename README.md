@@ -202,7 +202,7 @@ The `02b` and `03` notebooks document the preprocessing and model training used 
 | E3c | Official SBI with SAM | `04h_E3c_FFPP_Evaluation.ipynb` | `05h_E3c_CelebDF_Evaluation.ipynb` |
 | E3d | Official SBI with EfficientNet-B4 | `04j_E3d_B4_FFPP_Evaluation.ipynb` | `05j_E3d_B4_CelebDF_Evaluation.ipynb` |
 | E4 | FSBI-DWT with EfficientNet-B0 | `04i_E4_FSBI_DWT_FFPP_Evaluation.ipynb` | `05i_E4_FSBI_DWT_CelebDF_Evaluation.ipynb` |
-| E5 | FreqBlender SBI with EfficientNet-B4 | `04k_E5_FreqBlender_B4_FFPP_Evaluation.ipynb` | `05k_E5_FreqBlender_B4_CelebDF_Evaluation.ipynb` |
+
 
 ## Decision Threshold and Video Aggregation
 
