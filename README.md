@@ -92,106 +92,57 @@ There are two supported workflows:
 
 The checkpoint-based evaluation workflow is recommended when the objective is to verify the reported results without repeating all training runs.
 
-## Step 1: Open the Setup Notebook in Google Colab
+## Step 1: Open the Notebook in Google Colab
 
-Open Google Colab:
+Open https://colab.research.google.com/ and select the **GitHub** tab.
 
-https://colab.research.google.com/
-
-Select the **GitHub** tab and enter the following repository URL:
+Enter:
 
 ```text
 https://github.com/sawket/deepfake-detection-dissertation
 ```
 
-Select and open:
+Open:
 
 ```text
 notebooks/00_Project_Setup_and_FFPP_Data_Preparation.ipynb
 ```
 
-Opening the notebook through the GitHub tab loads that notebook into Colab. It
-does not copy the complete repository into Google Drive.
+## Step 2: Set the Controls
 
-## Step 2: Create the Google Drive Project Folders
-
-In notebook `00`, set:
-
-```python
-INSTALL_DEPENDENCIES = True
-PREPARE_FFPP_DATA = False
-```
-
-Run all cells and allow Colab to mount Google Drive when requested.
-
-This setup-only run creates:
-
-```text
-/content/drive/MyDrive/deepfake_project/
-```
-
-It also creates the subfolders required by the preparation, training and
-evaluation notebooks. FaceForensics++ is not downloaded when
-`PREPARE_FFPP_DATA` is set to `False`.
-
-## Step 3: Download and Add the Fixed Manifests
-
-After the project folders have been created, download the following manifest
-files from the repository:
-
-* [FF++ video split manifest](https://github.com/sawket/deepfake-detection-dissertation/blob/main/manifests/ffpp_video_split_manifest.json)
-* [Celeb-DF v2 pilot manifest](https://github.com/sawket/deepfake-detection-dissertation/blob/main/manifests/celebdf_pilot_manifest.json)
-
-On each GitHub file page, use the download button to save the JSON file. Keep
-the original filename unchanged.
-
-Upload the files to these Google Drive locations:
-
-```text
-ffpp_video_split_manifest.json
-→ /content/drive/MyDrive/deepfake_project/ffpp_video_split_manifest.json
-
-celebdf_pilot_manifest.json
-→ /content/drive/MyDrive/deepfake_project/celebdf_v2/celebdf_pilot_manifest.json
-```
-
-These manifests preserve the FaceForensics++ source-video partitions and the
-Celeb-DF v2 pilot selection used in the dissertation.
-
-## Step 4: Prepare FaceForensics++
-
-Return to notebook `00` and set:
+For a complete first run, use:
 
 ```python
 INSTALL_DEPENDENCIES = True
 PREPARE_FFPP_DATA = True
 ```
 
-Run all cells again.
+## Step 3: Run the Notebook
 
-The notebook will:
+Select **Runtime → Run all** and allow access to Google Drive.
 
-* download the FaceForensics++ source videos through KaggleHub;
-* load the fixed video-level split manifest;
-* extract ten frames from each source video;
-* populate the training, validation and test folders;
-* report the number of images and source videos in each partition; and
-* check that source videos do not overlap between partitions.
+The notebook will create the project folders, download the fixed manifests,
+download FaceForensics++, extract ten frames per video and create the training,
+validation and test splits.
 
-KaggleHub may request authentication or acceptance of the dataset conditions
-during the first download.
+## Step 4: Check the Output
 
-The expected prepared dataset contains:
+The prepared dataset should contain:
 
 ```text
-Training:   1,400 authentic frames and 1,400 manipulated frames
-Validation:   300 authentic frames and   300 manipulated frames
-Testing:      300 authentic frames and   300 manipulated frames
+Training:   1,400 real and 1,400 fake frames
+Validation:   300 real and   300 fake frames
+Testing:      300 real and   300 fake frames
 Total:      4,000 frames
 ```
 
-Do not continue to the preprocessing notebooks if the final verification
-reports missing data or source-video overlap.
+The final audit should report:
+
+```text
+PASS: no source-video overlap was detected across train/val/test.
+```
+
+Do not continue if frames are missing or source-video overlap is reported.
 
 ## Step 5: Prepare Face and SBI Inputs
 
