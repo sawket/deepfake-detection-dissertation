@@ -197,7 +197,6 @@ The `02b` and `03` notebooks document the preprocessing and model training used 
 | E2 | Frozen EfficientNet-B0 using full frames | `04c_E2_FFPP_Evaluation.ipynb` | `05c_E2_CelebDF_Evaluation.ipynb` |
 | E2.1 | Fine-tuned EfficientNet-B0 using full frames | `04d_E21_FFPP_Evaluation.ipynb` | `05d_E21_CelebDF_Evaluation.ipynb` |
 | E2.2 | Fine-tuned EfficientNet-B0 using face crops | `04e_E22_FFPP_Evaluation.ipynb` | `05e_E22_CelebDF_Evaluation.ipynb` |
-| E3a | Adapted SBI with EfficientNet-B0 | `04f_E3a_FFPP_Evaluation.ipynb` | `05f_E3a_CelebDF_Evaluation.ipynb` |
 | E3b | Official SBI with EfficientNet-B0 | `04g_E3b_FFPP_Evaluation.ipynb` | `05g_E3b_CelebDF_Evaluation.ipynb` |
 | E3c | Official SBI with SAM | `04h_E3c_FFPP_Evaluation.ipynb` | `05h_E3c_CelebDF_Evaluation.ipynb` |
 | E3d | Official SBI with EfficientNet-B4 | `04j_E3d_B4_FFPP_Evaluation.ipynb` | `05j_E3d_B4_CelebDF_Evaluation.ipynb` |

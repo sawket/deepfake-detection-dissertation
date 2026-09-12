@@ -20,7 +20,6 @@ baseline_cnn_face.pth
 efficientnet_b0.pth
 efficientnet_b0_finetuned.pth
 efficientnet_b0_face_finetuned.pth
-efficientnet_b0_sbi_best.pth
 efficientnet_b0_official_sbi_best.pth
 efficientnet_b0_official_sbi_sam_best.pth
 efficientnet_b4_official_sbi_best.pth
