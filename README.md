@@ -73,7 +73,6 @@ manifests/celebdf_pilot_manifest.json
 
 They preserve the exact source-video split and external pilot selection used in the dissertation.
 
-```markdown
 Notebook `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` automatically
 downloads both manifests to the required Google Drive locations when they are
 not already present. Existing manifest files are preserved.
@@ -162,29 +161,17 @@ but this requires additional time, storage and GPU resources.
 ## Experiment Mapping
 
 | Experiment | Description                                        |
-
 | ---------- | -------------------------------------------------- |
-
 | E1         | Shallow CNN using full frames                      |
-
 | E1.1       | Shallow CNN using face crops                       |
-
 | E2         | Frozen EfficientNet-B0 using full frames           |
-
 | E2.1       | Fully fine-tuned EfficientNet-B0 using full frames |
-
 | E2.2       | Fully fine-tuned EfficientNet-B0 using face crops  |
-
 | E3a        | Adapted Self-Blended Images                        |
-
 | E3b        | Official SBI procedure with EfficientNet-B0        |
-
 | E3c        | Official SBI optimisation configuration with SAM   |
-
 | E3d        | Official SBI procedure with EfficientNet-B4        |
-
 | E4         | FSBI-DWT frequency-informed configuration          |
-
 | E5         | FreqBlender SBI configuration with EfficientNet-B4 |
 
 ## Decision Threshold and Video Aggregation
