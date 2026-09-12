@@ -25,7 +25,6 @@ efficientnet_b0_official_sbi_best.pth
 efficientnet_b0_official_sbi_sam_best.pth
 efficientnet_b4_official_sbi_best.pth
 efficientnet_b0_fsbi_dwt_best.pth
-efficientnet_b4_freqblender_sbi_best.pth
 ```
 
 The evaluation notebooks expect these exact filenames and locations. Do not rename the checkpoint files.
