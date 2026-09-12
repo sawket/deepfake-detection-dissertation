@@ -103,38 +103,51 @@ Follow these steps whenever the instructions below ask you to open a notebook.
 
 ### Route 1: Reproduce All Results Using Checkpoints
 
-1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb`.
+1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` and use:
 
-2. Set:
+   ```python
+   INSTALL_DEPENDENCIES = True
+   PREPARE_FFPP_DATA = True
+   ```
 
-```python
-INSTALL_DEPENDENCIES = True
-PREPARE_FFPP_DATA = True
-```
+   Run all cells. This creates the project folders, downloads the fixed manifests and prepares the FaceForensics++ dataset.
 
-Run all cells. The notebook creates the project folders, downloads the fixed manifests and prepares the FaceForensics++ dataset.
+2. Open and run:
+
+   ```text
+   02a_Face_Preprocessing.ipynb
+   ```
+
+   This creates the 224 × 224 FaceForensics++ face crops.
 
 3. Open and run:
 
-```text
-02a_Face_Preprocessing.ipynb
-02c_B4_Test_Face_Preparation.ipynb
-```
+   ```text
+   05_CelebDF_Pilot_Preparation.ipynb
+   ```
 
-Notebook `02b_SBI_Preprocessing.ipynb` is not required when using the supplied checkpoints.
+   This prepares the fixed Celeb-DF v2 pilot using full frames and 224 × 224 face crops.
 
-4. Download the checkpoints described in `checkpoints/README.md` and place them in:
+4. Open and run:
 
-```text
-/content/drive/MyDrive/deepfake_project/saved_models/
-```
+   ```text
+   02c_B4_Test_Face_Preparation.ipynb
+   ```
 
-5. Run the `04` notebooks to reproduce the FaceForensics++ results.
+   This creates the 380 × 380 FaceForensics++ and Celeb-DF face crops required by the EfficientNet-B4 configurations.
 
-6. Run `05_CelebDF_Pilot_Preparation.ipynb` to prepare the fixed Celeb-DF v2 pilot.
+5. Follow the instructions in `checkpoints/README.md` to download the supplied checkpoints. Place them in:
 
-7. Run the `05a`–`05k` evaluation notebooks to reproduce the external results.
+   ```text
+   /content/drive/MyDrive/deepfake_project/saved_models/
+   ```
 
+6. Run the `04` evaluation notebooks to reproduce the FaceForensics++ results.
+
+
+7. Run the `05a`--`05k` evaluation notebooks to reproduce the Celeb-DF v2 pilot results.
+
+Notebook `02b_SBI_Preprocessing.ipynb` and the `03` training notebooks are required only for optional model retraining.
 ### Route 2: Run the Final E3b Demonstrator
 
 1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb`.
