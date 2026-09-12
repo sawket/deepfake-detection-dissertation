@@ -84,199 +84,79 @@ Using these files prevents the notebooks from generating a different split or pi
 
 ## Recommended Reproduction Workflow
 
-There are two supported workflows:
+The recommended approach uses the supplied checkpoints. Retraining is optional
+and is not required to verify the reported results.
 
-1. Evaluation using the supplied checkpoints.
+### Route 1: Reproduce All Results Using Checkpoints
 
-2. Full data preparation and model training from the beginning.
+1. Open `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` from the GitHub tab
+   in Google Colab.
 
-The checkpoint-based evaluation workflow is recommended when the objective is to verify the reported results without repeating all training runs.
+2. Use:
 
-## Step 1: Open the Notebook in Google Colab
+   ```python
+   INSTALL_DEPENDENCIES = True
+   PREPARE_FFPP_DATA = True
+   ```
 
-Open https://colab.research.google.com/ and select the **GitHub** tab.
+   Run all cells. The notebook creates the project folders, downloads the
+   fixed manifests and prepares the FaceForensics++ dataset.
 
-Enter:
+3. Run:
 
-```text
-https://github.com/sawket/deepfake-detection-dissertation
-```
+   ```text
+   02a_Face_Preprocessing.ipynb
+   02c_B4_Test_Face_Preparation.ipynb
+   ```
 
-Open:
+   Notebook `02b` is not required when using existing checkpoints.
 
-```text
-notebooks/00_Project_Setup_and_FFPP_Data_Preparation.ipynb
-```
+4. Download the checkpoints described in `checkpoints/README.md` and place
+   them in:
 
-## Step 2: Set the Controls
+   ```text
+   /content/drive/MyDrive/deepfake_project/saved_models/
+   ```
 
-For a complete first run, use:
+5. Run the `04` notebooks to reproduce the FaceForensics++ results.
 
-```python
-INSTALL_DEPENDENCIES = True
-PREPARE_FFPP_DATA = True
-```
+6. Run `05_CelebDF_Pilot_Preparation.ipynb`, followed by the `05a`--`05k`
+   evaluation notebooks, to reproduce the external results.
 
-## Step 3: Run the Notebook
+### Route 2: Run the Final E3b Demonstrator
 
-Select **Runtime → Run all** and allow access to Google Drive.
+1. Run `00_Project_Setup_and_FFPP_Data_Preparation.ipynb` with:
 
-The notebook will create the project folders, download the fixed manifests,
-download FaceForensics++, extract ten frames per video and create the training,
-validation and test splits.
+   ```python
+   INSTALL_DEPENDENCIES = True
+   PREPARE_FFPP_DATA = False
+   ```
 
-## Step 4: Check the Output
+2. Download:
 
-The prepared dataset should contain:
+   ```text
+   efficientnet_b0_official_sbi_best.pth
+   ```
 
-```text
-Training:   1,400 real and 1,400 fake frames
-Validation:   300 real and   300 fake frames
-Testing:      300 real and   300 fake frames
-Total:      4,000 frames
-```
+   and place it in:
 
-The final audit should report:
+   ```text
+   /content/drive/MyDrive/deepfake_project/saved_models/
+   ```
 
-```text
-PASS: no source-video overlap was detected across train/val/test.
-```
+3. Run:
 
-Do not continue if frames are missing or source-video overlap is reported.
+   ```text
+   optional/06b_E3b_Gradio_Application.ipynb
+   ```
 
-## Step 5: Prepare Face and SBI Inputs
+This route does not require dataset preparation or model retraining.
 
-Run the required preprocessing notebooks:
+## Optional Full Retraining
 
-```text
-02a_Face_Preprocessing.ipynb
-02b_SBI_Preprocessing.ipynb
-02c_B4_Test_Face_Preparation.ipynb
-```
-
-Their roles are:
-
-* `02a` creates the face-cropped FF++ dataset.
-
-* `02b` prepares the SBI-related resources.
-
-* `02c` prepares the higher-resolution face inputs required by the EfficientNet-B4 experiments.
-
-Only run the preprocessing notebooks required by the experiment being reproduced.
-
-## Step 6: Prepare the Celeb-DF v2 Pilot
-
-Open:
-
-```text
-notebooks/05_CelebDF_Pilot_Preparation.ipynb
-```
-
-Use:
-
-```python
-INSTALL_DEPENDENCIES = True
-PREPARE_CELEBDF_PILOT = True
-AUDIT_CELEBDF_PILOT = True
-FORCE_REBUILD = False
-```
-
-Run all cells.
-
-The notebook will:
-
-* load the supplied Celeb-DF pilot manifest;
-
-* download Celeb-DF v2 through KaggleHub when the source videos are required;
-
-* extract ten uniformly distributed frames from each selected video;
-
-* create RetinaFace crops;
-
-* verify the fixed pilot composition.
-
-The final pilot should contain:
-
-```text
-20 authentic videos
-20 manipulated videos
-10 sampled frames per video
-400 frames in total
-```
-
-Do not enable `FORCE_REBUILD` for normal reproduction.
-
-## Step 7: Reproduce Results Using the Checkpoints
-
-Download the supplied checkpoints using the link in:
-
-```text
-checkpoints/README.md
-```
-
-Copy them into:
-
-```text
-/content/drive/MyDrive/deepfake_project/saved_models/
-```
-
-Run the relevant `04*` notebook for internal FaceForensics++ evaluation or the relevant `05*` notebook for Celeb-DF v2 cross-dataset evaluation.
-
-### Internal FF++ Evaluation
-
-```text
-04a_E1_FFPP_Evaluation.ipynb
-04b_E11_FFPP_Evaluation.ipynb
-04c_E2_FFPP_Evaluation.ipynb
-04d_E21_FFPP_Evaluation.ipynb
-04e_E22_FFPP_Evaluation.ipynb
-04f_E3a_FFPP_Evaluation.ipynb
-04g_E3b_FFPP_Evaluation.ipynb
-04h_E3c_FFPP_Evaluation.ipynb
-04i_E4_FSBI_DWT_FFPP_Evaluation.ipynb
-04j_E3d_B4_FFPP_Evaluation.ipynb
-04k_E5_FreqBlender_B4_FFPP_Evaluation.ipynb
-```
-
-### External Celeb-DF v2 Evaluation
-
-```text
-05a_E1_CelebDF_Evaluation.ipynb
-05b_E11_CelebDF_Evaluation.ipynb
-05c_E2_CelebDF_Evaluation.ipynb
-05d_E21_CelebDF_Evaluation.ipynb
-05e_E22_CelebDF_Evaluation.ipynb
-05f_E3a_CelebDF_Evaluation.ipynb
-05g_E3b_CelebDF_Evaluation.ipynb
-05h_E3c_CelebDF_Evaluation.ipynb
-05i_E4_FSBI_DWT_CelebDF_Evaluation.ipynb
-05j_E3d_B4_CelebDF_Evaluation.ipynb
-05k_E5_FreqBlender_B4_CelebDF_Evaluation.ipynb
-```
-
-Each evaluation notebook loads one checkpoint and saves its outputs independently.
-
-## Full Training Workflow
-
-To reproduce model training rather than loading the supplied checkpoints, run the appropriate preprocessing stage followed by the corresponding training notebook:
-
-```text
-03a_E1_Baseline_CNN_Training.ipynb
-03b_E11_Face_CNN_Training.ipynb
-03c_E2_Frozen_EfficientNet_Training.ipynb
-03d_E21_Finetuned_EfficientNet_Training.ipynb
-03e_E22_Face_EfficientNet_Training.ipynb
-03f_E3a_Adapted_SBI_Training.ipynb
-03g_E3b_Official_SBI_Training.ipynb
-03h_E3c_SBI_SAM_Training.ipynb
-03i_E3d_Official_SBI_EfficientNetB4_Training.ipynb
-03j_E4_FSBI_DWT_Training.ipynb
-03k_E5_Official_FreqBlender_SBI_EfficientNetB4_Training.ipynb
-```
-
-Training every configuration is not required to evaluate the supplied checkpoints.
-
-Because training includes stochastic operations, a new training run may not reproduce every reported value exactly even when the same configuration and random seed are used. The supplied checkpoints, manifests, reference results, and plots preserve the principal runs reported in the dissertation.
+The `02b` and `03` notebooks document the preprocessing and training used in
+the dissertation. They may be run to reproduce the complete training process,
+but this requires additional time, storage and GPU resources.
 
 ## Experiment Mapping
 
