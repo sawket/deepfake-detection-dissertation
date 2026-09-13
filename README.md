@@ -184,9 +184,103 @@ optional/06b_E3b_Gradio_Application.ipynb
 
 This route does not require dataset preparation or model retraining.
 
-## Optional Full Retraining
+## Route 3: Optional Model Retraining
 
-The `02b` and `03` notebooks document the preprocessing and model training used in the dissertation. Run these notebooks only if complete retraining is required. Retraining requires additional time, Google Drive storage and GPU resources.
+Route 1 is the recommended method for reproducing the reported results using
+the supplied checkpoints. Model retraining is optional and is required only if
+the examiner wants to reproduce the model-training process.
+
+Before using this route, complete the data-preparation steps in Route 1:
+
+```text
+00_Project_Setup_and_FFPP_Data_Preparation.ipynb
+02a_Face_Preprocessing.ipynb
+05_CelebDF_Pilot_Preparation.ipynb
+02c_B4_Test_Face_Preparation.ipynb
+```
+
+These steps prepare the full-frame dataset, 224 × 224 face crops, fixed
+Celeb-DF v2 pilot and 380 × 380 evaluation crops.
+
+To retrain E3b or E3c, also open and run:
+
+```text
+02b_SBI_Preprocessing.ipynb
+```
+
+This prepares the authentic FaceForensics++ source frames and facial metadata
+used by the E3b and E3c training notebooks.
+
+### Select a Training Notebook
+
+Open the required training notebook:
+
+```text
+03a_E1_Baseline_CNN_Training.ipynb
+03b_E11_Face_CNN_Training.ipynb
+03c_E2_Frozen_EfficientNet_Training.ipynb
+03d_E21_Finetuned_EfficientNet_Training.ipynb
+03e_E22_Face_EfficientNet_Training.ipynb
+03g_E3b_Official_SBI_Training.ipynb
+03h_E3c_SBI_SAM_Training.ipynb
+03i_E3d_Official_SBI_EfficientNetB4_Training.ipynb
+03j_E4_FSBI_DWT_Training.ipynb
+```
+
+Training is disabled by default in every training notebook:
+
+```python
+RUN_TRAINING = False
+ALLOW_CHECKPOINT_OVERWRITE = False
+```
+
+Running all cells with these default values does not train the model or replace
+an existing checkpoint.
+
+To start a new training run, change:
+
+```python
+RUN_TRAINING = True
+```
+
+Keep:
+
+```python
+ALLOW_CHECKPOINT_OVERWRITE = False
+```
+
+unless deliberately replacing an existing checkpoint.
+
+If the supplied checkpoint from Route 1 is already present, the training
+notebook stops before training to protect it. The examiner can either move the
+existing checkpoint out of the `saved_models` directory or explicitly set:
+
+```python
+RUN_TRAINING = True
+ALLOW_CHECKPOINT_OVERWRITE = True
+```
+
+Setting overwrite permission to `True` allows the newly trained model to
+replace the existing checkpoint.
+
+A CUDA-enabled Google Colab runtime is strongly recommended for training.
+
+### Evaluate the Newly Trained Model
+
+After training, run the corresponding `04` notebook for held-out
+FaceForensics++ evaluation and the corresponding `05` notebook for
+cross-dataset evaluation on the fixed Celeb-DF v2 pilot.
+
+The Celeb-DF v2 pilot must be evaluated without retraining, target-domain
+adaptation or threshold tuning. The external decision threshold must remain:
+
+```python
+DECISION_THRESHOLD = 0.5
+```
+
+The Experiment Mapping table below identifies the corresponding internal and
+cross-dataset evaluation notebooks for each experiment.
+
 
 ## Experiment Mapping
 
